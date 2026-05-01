@@ -32,6 +32,11 @@ import java.util.*;
 @RequestMapping("api/auth")
 public class AuthController {
 
+//    Receives authentication requests: For example, a UsernamePasswordAuthenticationToken containing a username and password.
+//
+//    Delegates to providers: It passes the request to one or more AuthenticationProviders (like DaoAuthenticationProvider, LDAP provider, JWT provider, etc.).
+//
+//    Returns an Authentication object: If successful, it returns a fully authenticated object with user details and authorities.
     @Autowired
     private AuthenticationManager authenticationManager;
 

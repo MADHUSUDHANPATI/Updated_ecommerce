@@ -55,7 +55,7 @@ public class WebSecurityConfig {
 
     @Bean
     public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
+        return new BCryptPasswordEncoder();    // Setting this bcypt pass algo to dao auth provider.
     }
     @Bean
     public AuthenticationManager authenticationManager(AuthenticationConfiguration builder) {
