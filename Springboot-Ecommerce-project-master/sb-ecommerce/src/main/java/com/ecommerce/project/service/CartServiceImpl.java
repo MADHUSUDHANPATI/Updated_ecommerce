@@ -248,12 +248,12 @@ public class CartServiceImpl implements CartService{
             throw new ResourceNotFoundException("Product", "productId", productId);
         }
 
-        // ❌ remove old wrong subtraction logic
+        //  remove old wrong subtraction logic
 
-        // ✅ delete item first
+        //  delete item first
         cartItemRepository.deleteCartItemByProductIdAndCartId(cartId, productId);
 
-        // ✅ recalculate total properly
+        //  recalculate total properly
         double total = cart.getCartItems().stream()
                 .filter(item -> !item.getProduct().getProductId().equals(productId))
                 .mapToDouble(item -> item.getProductPrice() * item.getQuantity())

@@ -81,7 +81,7 @@ public class WebSecurityConfig {
 
         http.authenticationProvider(authenticationProvider());
         http.addFilterBefore(authenticationJwtTokenFilter(), UsernamePasswordAuthenticationFilter.class);
-        http.headers(headers-> headers.frameOptions(framesOptions-> framesOptions.sameOrigin()));
+        http.headers(headers-> headers.frameOptions(framesOptions-> framesOptions.sameOrigin()));  // To prevent   Clickjacking Attack
         return http.build();
     }
 

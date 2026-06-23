@@ -57,12 +57,12 @@ public class JwtUtils {       // Handles all JWT operations.
     }
 
 
-    public ResponseCookie generatejwtCookie(UserDetailsImpl userDetails) {
+    public ResponseCookie generatejwtCookie(UserDetailsImpl userDetails) {              // We can use refresh tokens , these are stored in db.
         String jwt = generateTokenFromUserName(userDetails.getUsername());
         ResponseCookie cookie = ResponseCookie.from(jwtCookie, jwt)
                 .path("/api")
                 .maxAge(24* 60* 60)
-                .httpOnly(false)
+                .httpOnly(true)  // false --> true;
                 .build();
         return cookie;
     }
